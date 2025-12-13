@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:knitting_app/controllers/product_provider.dart';
+import 'package:go_router/go_router.dart';
+import 'package:knitting_app/controllers/providers/product_provider.dart';
+import 'package:knitting_app/controllers/router.dart';
 import 'package:provider/provider.dart';
 
 class FeedView extends StatefulWidget {
@@ -10,20 +12,24 @@ class FeedView extends StatefulWidget {
 }
 
 class _FeedViewState extends State<FeedView> {
-  
   // initState() sayfa ilk kez açıldığında bir kere çalışır
   @override
   void initState() {
     super.initState();
-    Provider.of<ProductProvider>(context, listen: false).loadProducts(); // provider ile ProductProvider nesnesine erişip loadProducts fonksiyonunu çağırıyoruz
+    Provider.of<ProductProvider>(
+      context,
+      listen: false,
+    ).loadProducts(); // provider ile ProductProvider nesnesine erişip loadProducts fonksiyonunu çağırıyoruz
   }
 
   @override
-  Widget build(BuildContext context) { // buradaki build loadProducts içindeki notiftyListeners yüzünden yeniden tetiklendi
-    final provider = Provider.of<ProductProvider>(context);
-    final products = provider.products;
+  Widget build(BuildContext context) {
+    // buradaki build loadProducts içindeki notiftyListeners yüzünden yeniden tetiklendi
+    final productProvider = Provider.of<ProductProvider>(context);
+    final products = productProvider.products;
 
-    if (provider.isLoading) { // loadProducts işlemi devam ederken kullanıcıları kandırmak için döndürme getiriyoruz
+    if (productProvider.isLoading) {
+      // loadProducts işlemi devam ederken kullanıcıları kandırmak için döndürme getiriyoruz
       return const Center(child: CircularProgressIndicator());
     }
 
@@ -46,6 +52,10 @@ class _FeedViewState extends State<FeedView> {
 
                   return Card(
                     child: ListTile(
+                      onTap: () {
+                        context.go('/product',extra: p,
+                        );
+                      },
 
                       leading: Image.network(
                         p.imageUrl,
@@ -61,6 +71,8 @@ class _FeedViewState extends State<FeedView> {
                 },
               ),
             ),
+
+
           ],
         ),
       ),

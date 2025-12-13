@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HowTo {
+class HowToModel {
   final int id;
   final String title;
   final String difficulty;
@@ -10,7 +10,7 @@ class HowTo {
   final String hookSize; // Tığ numarası
   final String imageUrl;
 
-  HowTo({
+  HowToModel({
     required this.id,
     required this.title,
     required this.difficulty,
@@ -22,8 +22,8 @@ class HowTo {
   });
 
   /// JSON / Map → Model
-  factory HowTo.fromMap(Map<String, dynamic> map) {
-    return HowTo(
+  factory HowToModel.fromMap(Map<String, dynamic> map) {
+    return HowToModel(
       id: map["id"] ?? 0,
       title: map["title"] ?? "",
       difficulty: map["difficulty"] ?? "",

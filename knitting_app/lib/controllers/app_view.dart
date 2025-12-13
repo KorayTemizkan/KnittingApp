@@ -39,7 +39,7 @@ class AppView extends StatelessWidget {
               index: 1,
               currentIndex: navigationShell.currentIndex,
               label: 'Explore',
-              icon: Icons.feed,
+              icon: Icons.explore,
             ),
 
             _menuItem(
@@ -48,7 +48,7 @@ class AppView extends StatelessWidget {
               index: 2,
               currentIndex: navigationShell.currentIndex,
               label: 'Community',
-              icon: Icons.feed,
+              icon: Icons.escalator_sharp,
             ),
 
             _menuItem(
@@ -57,7 +57,7 @@ class AppView extends StatelessWidget {
               index: 3,
               currentIndex: navigationShell.currentIndex,
               label: 'Profile',
-              icon: Icons.feed,
+              icon: Icons.home,
             ),
             
           ]

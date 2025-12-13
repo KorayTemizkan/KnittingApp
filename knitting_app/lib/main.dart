@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knitting_app/controllers/product_provider.dart';
+import 'package:knitting_app/controllers/providers/product_provider.dart';
 import 'package:knitting_app/controllers/router.dart';
 import 'package:provider/provider.dart';
 

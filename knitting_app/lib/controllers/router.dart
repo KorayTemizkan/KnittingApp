@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:knitting_app/controllers/app_view.dart';
+import 'package:knitting_app/models/product_model.dart';
 import 'package:knitting_app/views/community_view/community_view.dart';
 import 'package:knitting_app/views/feed_view/feed_view.dart';
+import 'package:knitting_app/views/model_views/product_view.dart';
 import 'package:knitting_app/views/profile_view/profile_view.dart';
 import 'package:knitting_app/views/explore_view/explore_view.dart';
 import 'package:knitting_app/views/settings_view/settings_view.dart';
@@ -13,13 +15,15 @@ final _routerKey = GlobalKey<NavigatorState>();
 class AppRoutes {
   AppRoutes._(); // Bu sınıfın örneği oluşturulmasın diye özel yapıcı fonksiyonumuz, oluşturmaya gerek yok çünkü sabitlerimiz zaten var
 
-  static const String feed = '/'; // static sayesinde nesne oluşturmadan doğruca ileride AppRoutes.search diye erişebiliyoruz
+  static const String feed =
+      '/'; // static sayesinde nesne oluşturmadan doğruca ileride AppRoutes.search diye erişebiliyoruz
   static const String search = '/search';
   static const String community = '/community';
   static const String profile = '/profile';
 
   static const String settings = "/settings";
-  static const String login = '/login';
+
+  static const String product = 'product';
 }
 
 final router = GoRouter(
@@ -43,12 +47,23 @@ StatefulShellRoute _bottomBar() {
     builder: (context, state, navigationShell) =>
         AppView(navigationShell: navigationShell),
 
+    //buradaki navigationShell aktif branchi, goBRANCH(index) bilgilerini taşır
     branches: [
       StatefulShellBranch(
         routes: [
           GoRoute(
             path: AppRoutes.feed,
             builder: (context, state) => FeedView(),
+
+            routes: [
+              GoRoute(
+                path: AppRoutes.product,
+                builder: (context, state) {
+                  final product = state.extra as ProductModel;
+                  return ProductView(product: product);
+                },
+              ),
+            ],
           ),
         ],
       ),

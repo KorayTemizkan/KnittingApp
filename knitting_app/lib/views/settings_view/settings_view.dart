@@ -18,13 +18,17 @@ class _SettingsViewState extends State<SettingsView> {
         children: [
 
           Text('settings_view'),
+          Text('giris yap / kayit ol'),
+          Text('ses ayarlari'),
           ListTile(
             title: const Text('Dark Theme'),
             trailing: Switch(value: false, onChanged: (v) {}),
           ),
           Text('Language'),
           Text('hakkimizda'),
-          Text('cikis yap'),
+          Text('bize yazin'),
+          Text('bizi puanlayın'),
+          Text('uygulamadan cikis yap'),
         ],
       ),
     );

@@ -22,5 +22,5 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(56);
+  Size get preferredSize => const Size.fromHeight(56); // benim app barım 56 px yüksekliğinde, (56 standart yükseklik)
 }

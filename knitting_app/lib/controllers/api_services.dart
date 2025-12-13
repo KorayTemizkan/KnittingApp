@@ -7,7 +7,7 @@ import 'package:knitting_app/models/product_model.dart';
 Future<List<ProductModel>> fetchProducts() async {
   final response = await http.get(
     Uri.parse(
-      'https://raw.githubusercontent.com/kullanici/repo/main/products.json',
+      'https://raw.githubusercontent.com/KorayTemizkan/KnittingApp/main/products.json',
     ),
   );
 
@@ -22,7 +22,7 @@ Future<List<ProductModel>> fetchProducts() async {
   }
 }
 
-Future<List<HowTo>> fetchHowTos() async {
+Future<List<HowToModel>> fetchHowTos() async {
   final response = await http.get(
     Uri.parse(
       'https://raw.githubusercontent.com/kullanici/repo/main/products.json',
@@ -32,7 +32,7 @@ Future<List<HowTo>> fetchHowTos() async {
   if (response.statusCode == 200) {
     final List<dynamic> jsonList = jsonDecode(response.body);
 
-    return jsonList.map((item) => HowTo.fromMap(item)).toList();
+    return jsonList.map((item) => HowToModel.fromMap(item)).toList();
   } else {
     throw Exception(
       'Failed to load howtos. Code: ${response.statusCode}, Reason: ${response.reasonPhrase}',
