@@ -1,14 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:knitting_app/controllers/app_bar.dart';
 import 'package:knitting_app/models/product_model.dart';
+import 'package:knitting_app/controllers/providers/shared_preferences_provider.dart';
+import 'package:provider/provider.dart';
 
-class ProductView extends StatelessWidget {
+class ProductView extends StatefulWidget {
   final ProductModel product;
   const ProductView({super.key, required this.product});
 
   @override
-  Widget build(BuildContext context) {
+  State<ProductView> createState() => _ProductViewState();
+}
 
+class _ProductViewState extends State<ProductView> {
+  bool isSaved = false; // burada neden string kullandın ki gerek yoktu akıllı
+  bool isLiked = false;
+
+  List<String> savedCharactersList = [];
+
+  /*
+  
+  burada tüm uygulamada kullanmak için tek bir provider treferansı önerilmiyor.
+  Context her zaman güvenli değildir ve lifecylcle bağlıdır. çünkü daha context oluşmadı,
+  widget ağaca eklenmedi, provider tree hazır değil.
+  Hot reload/ yeniden başlatma ya da başka durumlarda sorun çıkabilir
+  o yüzden aşağıda elevated button içinde yeniden tanımlıyoruz.
+  özet : en güvenli yol ihtiyaç anında context üzerinden almak veya build içinde okumaktır
+
+  unutma ! Provider.of nesne oluşturmaz. O(1)'lik referans oluşturur.
+
+  */
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    final sharedPreferencesProvider = Provider.of<SharedPreferencesProvider>(
+      context,
+      listen: false,
+    ); // listen: false ile bu provideri sadece oku diyor
+    /* eğer böyle olsaydı:
+final sp = Provider.of<SharedPreferencesProvider>(context);
+
+widget bu providera abone olur. provider içinde notify listeners çağrılırsa widget rebuild olur
+ne zaman kullanalım :
+
+örneğin ekranda veri göstereceğiz (mesela streak),
+    */
+    sharedPreferencesProvider.finishGetSavedCharacters().then((list) {
+      setState(() {
+        savedCharactersList = list;
+        isSaved = savedCharactersList.contains(widget.product.id.toString());
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(title: 'Knitting App - Ürün ayrintisi'),
 
@@ -17,18 +65,47 @@ class ProductView extends StatelessWidget {
           children: [
             Card(
               child: ListTile(
-                leading: Image.network(product.imageUrl),
-                title: Text(product.title),
+                leading: Image.network(widget.product.imageUrl),
+                title: Text(widget.product.title),
               ),
             ),
-            ElevatedButton(onPressed: like, child: Text('Like')),
+
+            saveProduct(context),
+
+            likeProduct(context),
           ],
         ),
       ),
     );
   }
 
-  void like() {
-    
+  ElevatedButton likeProduct(BuildContext context) => ElevatedButton(
+    onPressed: () {},
+    child: Text(isLiked ? 'Unlike' : 'Like'),
+  );
+
+  ElevatedButton saveProduct(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () async {
+        final sharedPreferencesProvider =
+            Provider.of<SharedPreferencesProvider>(context, listen: false);
+
+        if (isSaved) {
+          await sharedPreferencesProvider.finishRemoveCharacter(
+            widget.product.id,
+          );
+        } else {
+          await sharedPreferencesProvider.finishSaveCharacter(
+            widget.product.id,
+          );
+        }
+
+        setState(() {
+          isSaved = !isSaved;
+        });
+      },
+
+      child: Text(isSaved ? 'Unsave' : 'Save'),
+    );
   }
 }

@@ -8,6 +8,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
+/*
+Shared preferences diskten her çağrıda okuma yapmaz, uygulama açılırken diskteki XML/JSON dosyasını bir kere okur
+Belleğe yükler
+prefs.getStringList(...) gibi çağrılar yaptığında bellekteki Map'ten okur (O(1))
+
+*/
 // dikkat ! uı tarafına daha entegre etmedik
   final sp = await SharedPreferences.getInstance(); //sharedpreferences sınıfından katman oluşturma
   final appPreferences = AppPreferences(preferences: sp); // kalıcı veri katmanı oluşturduk

@@ -16,14 +16,26 @@ class _SettingsViewState extends State<SettingsView> {
 
       body: Column(
         children: [
-
           Text('settings_view'),
           Text('giris yap / kayit ol'),
           Text('ses ayarlari'),
-          ListTile(
-            title: const Text('Dark Theme'),
-            trailing: Switch(value: false, onChanged: (v) {}),
+
+          Expanded(
+            child: ListView(
+              children: [
+                ListTile(
+                  title: const Text('Dark Theme'),
+                  trailing: Switch(value: false, onChanged: (v) {}),
+                ),
+            
+                ListTile(
+                  title: const Text('Music Controller'),
+                  trailing: Switch(value: false, onChanged: (v) {}),
+                ),
+              ],
+            ),
           ),
+
           Text('Language'),
           Text('hakkimizda'),
           Text('bize yazin'),
