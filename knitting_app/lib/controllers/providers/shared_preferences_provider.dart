@@ -53,3 +53,5 @@ class SharedPreferencesProvider extends ChangeNotifier {
     return await _preferences.getSavedCharacters();
   }
 }
+
+// BEĞENMELERİ EKLEMEMİŞİM

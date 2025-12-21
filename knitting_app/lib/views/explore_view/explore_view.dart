@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knitting_app/controllers/app_bar.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -11,6 +12,7 @@ class _SearchViewState extends State<ExploreView> {
   @override
   Widget build(BuildContext context) {
   return Scaffold(
+    appBar: AppBarWidget(title: 'KnittingApp - Keşfet'),
       body: Center(
         child: Column(
           children: [
@@ -19,9 +21,7 @@ class _SearchViewState extends State<ExploreView> {
             Text('Fidan Öğretmenimizden rehberler'),
             Text('Odevler'),
             Text('Fidan öğretmenimize sor'),
-            Text('Yapay zekaya sor'),
-
-            
+            Text('Yapay zekaya sor'),           
           ],
         ),
       ),

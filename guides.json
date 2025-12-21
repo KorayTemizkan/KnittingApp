@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Amigurumi Ayıcık",
+    "difficulty": "medium",
+    "estimatedHour": "5 hours",
+    "colors": ["brown", "beige", "pink"],
+    "yarnType": "Cotton Yarn (3 mm)",
+    "hookSize": "2.5 mm",
+    "imageUrl": "https://b3523591.smushcdn.com/3523591/wp-content/uploads/2024/08/IMG_5698-1-1024x1024.jpg?lossy=2&strip=1&avif=1"
+  },
+  {
+    "id": 2,
+    "title": "Kışlık Düz Örgü Atkı",
+    "difficulty": "easy",
+    "estimatedHour": "3 hours",
+    "colors": ["cream", "grey", "navy"],
+    "yarnType": "Wool Yarn (5 mm)",
+    "hookSize": "No hook (knitting needles)",
+    "imageUrl": "https://b3523591.smushcdn.com/3523591/wp-content/uploads/2024/08/IMG_5698-1-1024x1024.jpg?lossy=2&strip=1&avif=1"
+  },
+  {
+    "id": 3,
+    "title": "Bebek Patiği",
+    "difficulty": "medium",
+    "estimatedHour": "2 hours",
+    "colors": ["pink", "white", "baby blue"],
+    "yarnType": "Baby Soft Yarn (2.5 mm)",
+    "hookSize": "2.0 mm",
+    "imageUrl": "https://b3523591.smushcdn.com/3523591/wp-content/uploads/2024/08/IMG_5698-1-1024x1024.jpg?lossy=2&strip=1&avif=1"
+  }
+]

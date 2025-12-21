@@ -27,9 +27,14 @@ factory → kontrollü erişim
 
   final AudioPlayer _player = AudioPlayer(); // sınıftan nesne oluşturduk
 
+  double _volume = 0.5;
+  double get volume => _volume;
+
   // initialize kısaltması olarak bir yazılım geleneği
-  Future<void> init() async { 
-    await _player.setAsset('assets/music/bg.mp3'); // dosyayı alıp belleğe alır
+  Future<void> init() async {
+    await _player.setAsset(
+      'assets/musics/dreamy-lofi-music-no-copyright-375785.mp3',
+    ); // dosyayı alıp belleğe alır
     _player.setLoopMode(LoopMode.one); // loop ayarını yapıyor
     _player.play();
   } // UI'dan bağımsız biçimde müzikçalarımızı ayarlardık
@@ -39,9 +44,9 @@ factory → kontrollü erişim
   void pause() => _player.pause();
 
   void setVolume(double volume) {
+    _volume = volume;
     _player.setVolume(volume);
   }
-
 
   /*
   Uygulama kapanırken playeri serbest bırakarak memory leak önler. bu fonksiyonu hep kullanmaya çalış

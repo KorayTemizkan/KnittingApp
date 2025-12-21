@@ -9,8 +9,6 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'KnittingApp'),
-
       body: navigationShell,
       bottomNavigationBar: NavigationBarTheme(
        

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:knitting_app/controllers/providers/product_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:knitting_app/controllers/app_bar.dart';
 
 class FeedView extends StatefulWidget {
   const FeedView({super.key});
@@ -11,28 +12,15 @@ class FeedView extends StatefulWidget {
 }
 
 class _FeedViewState extends State<FeedView> {
-  // initState() sayfa ilk kez açıldığında bir kere çalışır
-  @override
-  void initState() {
-    super.initState();
-    Provider.of<ProductProvider>(
-      context,
-      listen: false,
-    ).loadProducts(); // provider ile ProductProvider nesnesine erişip loadProducts fonksiyonunu çağırıyoruz
-  }
-
   @override
   Widget build(BuildContext context) {
     // buradaki build loadProducts içindeki notiftyListeners yüzünden yeniden tetiklendi
     final productProvider = Provider.of<ProductProvider>(context);
     final products = productProvider.products;
 
-    if (productProvider.isLoading) {
-      // loadProducts işlemi devam ederken kullanıcıları kandırmak için döndürme getiriyoruz
-      return const Center(child: CircularProgressIndicator());
-    }
-
     return Scaffold(
+      appBar: AppBarWidget(title: 'KnittingApp - Keşfet'),
+
       body: Center(
         child: Column(
           children: [
@@ -64,8 +52,6 @@ class _FeedViewState extends State<FeedView> {
 
                       title: Text(p.title),
                       subtitle: Text("${p.difficulty}, ${p.estimatedHour}"),
-
-                      
                     ),
                   );
                 },

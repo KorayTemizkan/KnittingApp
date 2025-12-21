@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knitting_app/controllers/app_bar.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -11,6 +12,7 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
   return Scaffold(
+    appBar: AppBarWidget(title: 'KnittingApp - Profil'),
       body: Center(
         child: Column(
           children: [
