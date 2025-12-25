@@ -1,15 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:knitting_app/controllers/music_controller.dart';
+import 'package:knitting_app/controllers/settings/music_controller.dart';
 import 'package:knitting_app/controllers/providers/product_provider.dart';
 import 'package:knitting_app/controllers/providers/theme_provider.dart';
 import 'package:knitting_app/controllers/router.dart';
+import 'package:knitting_app/firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:knitting_app/controllers/shared_preferences.dart';
 import 'package:knitting_app/controllers/providers/shared_preferences_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:knitting_app/controllers/providers/auth_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Firebase ayarlamaları burada yapılır
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // await FirebaseAuth.instance.signOut(); bunu kontrol edelim belki gerekmez
 
   /*
 Shared preferences diskten her çağrıda okuma yapmaz, uygulama açılırken diskteki XML/JSON dosyasını bir kere okur
@@ -35,6 +41,7 @@ prefs.getStringList(...) gibi çağrılar yaptığında bellekteki Map'ten okur 
           create: (_) => SharedPreferencesProvider(appPreferences),
         ),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
       ],
       child: const MyApp(),
     ),
@@ -63,6 +70,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final themeProvider = context.watch<ThemeProvider>();
+
     return MaterialApp.router(
       // Dart'da named parameter = ile değil : ile verilir.
       routerConfig: router,

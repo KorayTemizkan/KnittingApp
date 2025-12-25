@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:knitting_app/controllers/app_bar.dart';
-import 'package:knitting_app/controllers/music_controller.dart';
+import 'package:knitting_app/controllers/settings/music_controller.dart';
 import 'package:knitting_app/controllers/providers/theme_provider.dart';
 import 'package:knitting_app/controllers/url_launcher_controller.dart';
 import 'package:knitting_app/views/settings_view/about_us_view.dart';
@@ -17,6 +17,7 @@ class SettingsView extends StatefulWidget {
 class _SettingsViewState extends State<SettingsView> {
   bool _isPlaying = true;
   double volume = MusicController().volume;
+  String selectedLanguage = 'TR';
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +26,8 @@ class _SettingsViewState extends State<SettingsView> {
 
       body: Column(
         children: [
-          Text('settings_view'),
           Text('giris yap / kayit ol'),
-          Text('ses ayarlari'),
-
+    
           Expanded(
             child: ListView(
               children: [
@@ -43,11 +42,6 @@ class _SettingsViewState extends State<SettingsView> {
                 ),
 
                 ListTile(
-                  title: const Text('Music Controller'),
-                  trailing: Switch(value: false, onChanged: (v) {}),
-                ),
-
-                ListTile(
                   title: const Text('Biz kimiz?'),
                   onTap: () {
                     context.go('/settings/aboutUs');
@@ -59,6 +53,23 @@ class _SettingsViewState extends State<SettingsView> {
                   onTap: () {
                     context.go('/settings/sendUs');
                   },
+                ),
+
+                ListTile(
+                  title: const Text('Dil secimi yap'),
+                  trailing: DropdownButton<String>(
+                    value: selectedLanguage,
+                    items: const [
+                      DropdownMenuItem(value: 'TR', child: Text('Türkçe')),
+                      DropdownMenuItem(value: 'AZ', child: Text('Azerbaycan Dili')),
+                    ],
+
+                    onChanged: (value) {
+                      setState(() { // ekranı yeniden çizdirir, sürekli hatırlatmaktan yoruldum
+                        selectedLanguage = value!;
+                      });
+                    },
+                  ),
                 ),
 
                 ListTile(
@@ -103,13 +114,12 @@ class _SettingsViewState extends State<SettingsView> {
                     });
                   },
                 ),
+
+                // Bak ilginç bir şey öğrendim, exit(0) önerilmiyormuş. Uygulamadan aşağıya atıp bellekten de kapatınca işletim
+                // sistemi otomatik ayarlıyormuş bellek yönetimini vs. haberin olsun. EXİT butonu yapmıyorum
               ],
             ),
           ),
-
-          Text('Language'),
-          Text('bizi puanlayın'),
-          Text('uygulamadan cikis yap'),
         ],
       ),
     );

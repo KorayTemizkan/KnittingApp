@@ -24,7 +24,6 @@ class _FeedViewState extends State<FeedView> {
       body: Center(
         child: Column(
           children: [
-            Text('feed_view'),
             Text('kullanıcıya özel selamlama'),
             Text('giriş serisi'),
             Text('gunun challengi'),

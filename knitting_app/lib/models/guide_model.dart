@@ -1,6 +1,6 @@
-/*import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-class ProductModel {
+class GuideModel {
   final int id;
   final String title;
   final String difficulty;
@@ -10,7 +10,7 @@ class ProductModel {
   final String hookSize;   // Tığ numarası
   final String imageUrl;
 
-  ProductModel({
+  GuideModel({
     required this.id,
     required this.title,
     required this.difficulty,
@@ -22,8 +22,8 @@ class ProductModel {
   });
 
   /// JSON / Map → Model
-  factory ProductModel.fromMap(Map<String, dynamic> map) {
-    return ProductModel(
+  factory GuideModel.fromMap(Map<String, dynamic> map) {
+    return GuideModel(
       id: map["id"] ?? 0,
       title: map["title"] ?? "",
       difficulty: map["difficulty"] ?? "",
@@ -54,4 +54,3 @@ class ProductModel {
     return 'ProductModel{id: $id, title: $title, difficulty: $difficulty, estimatedHour: $estimatedHour}';
   }
 }
-*/
