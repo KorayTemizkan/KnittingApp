@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:knitting_app/controllers/app_bar.dart';
 import 'package:knitting_app/controllers/providers/product_provider.dart';
 import 'package:knitting_app/controllers/providers/shared_preferences_provider.dart';
-import 'package:knitting_app/models/guide_model.dart';
+import 'package:knitting_app/models/product_model.dart';
 import 'package:provider/provider.dart';
 
 class ProfileView extends StatefulWidget {
@@ -36,17 +36,18 @@ class _ProfileViewState extends State<ProfileView> {
   }
 
   /// 🔹 savedIds sırasına göre product.id eşleştirir
+  /// artık productMap[3] -> Bere gibi oldu
   List<ProductModel> _getSavedProducts({
     required List<int> savedIds,
     required List<ProductModel> products,
   }) {
-    final productMap = {for (final p in products) p.id: p};
+    final productMap = {for (final p in products) p.id: p}; // products listesini mape çevir
 
     return savedIds
         .map((id) => productMap[id])
         .whereType<ProductModel>()
         .toList();
-  }
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -73,10 +74,9 @@ class _ProfileViewState extends State<ProfileView> {
 
             Expanded(
               child: ListView.builder(
-                itemCount: savedCharactersList.length,
+                itemCount: savedProducts.length,
                 itemBuilder: (context, index) {
-                  final productIndex = intSavedCharactersList[index];
-                  final p = products[productIndex];
+                  final p = savedProducts[index];
 
                   return Card(
                     child: ListTile(

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 class ProductModel {
   final int id;
@@ -54,3 +54,4 @@ class ProductModel {
     return 'ProductModel{id: $id, title: $title, difficulty: $difficulty, estimatedHour: $estimatedHour}';
   }
 }
+*/
