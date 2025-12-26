@@ -12,11 +12,17 @@ class _CommunityViewState extends State<CommunityView> {
   @override
   Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBarWidget(title: 'KnittingApp - Topluluk'),
+    appBar: AppBarWidget(title: 'Topluluk'),
       body: Center(
         child: Column(
           children: [
-            Text('community_view'),
+            Text('Geliştiriyoruz!',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 50,
+              fontWeight: FontWeight.bold,
+            ),
+            ),
           ],
         ),
       ),

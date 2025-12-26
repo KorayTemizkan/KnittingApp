@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ProductModel {
+/* 
+Örneğin bir ayıcık gibi düşün, bunun videosu olucak ama tanıtım videosu gibi düşün. baştan sona aşamalar olmayacak
+*/
+class ProductModel { 
   final int id;
   final String title;
   final String difficulty;
@@ -9,6 +12,7 @@ class ProductModel {
   final String yarnType;   // ip türü
   final String hookSize;   // Tığ numarası
   final String imageUrl;
+  // BURAYA URUN VIDEO LINKI EKLEYECEGIZ
 
   ProductModel({
     required this.id,

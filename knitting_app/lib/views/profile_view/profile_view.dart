@@ -74,13 +74,13 @@ class _ProfileViewState extends State<ProfileView> {
     );
 
     return Scaffold(
-      appBar: AppBarWidget(title: 'KnittingApp - Profil'),
+      appBar: AppBarWidget(title: 'Profil'),
       body: Center(
         child: Column(
           children: [
             Text('kullanıcı kartı'),
             Text('beğenilenler'),
-
+            Text('SSS'),
             SizedBox(height: 15),
             Text('KULLANICI BILGILERI'),
             Text(auth.email ?? 'Giris yapilmadi'),

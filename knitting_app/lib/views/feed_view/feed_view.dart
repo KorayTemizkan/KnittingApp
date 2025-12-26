@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:knitting_app/controllers/providers/product_provider.dart';
+import 'package:knitting_app/models/product_model.dart';
 import 'package:provider/provider.dart';
 import 'package:knitting_app/controllers/app_bar.dart';
 
@@ -19,16 +20,17 @@ class _FeedViewState extends State<FeedView> {
     final products = productProvider.products;
 
     return Scaffold(
-      appBar: AppBarWidget(title: 'KnittingApp - Keşfet'),
+      appBar: AppBarWidget(title: 'Akış'),
 
       body: Center(
         child: Column(
           children: [
-            Text('kullanıcıya özel selamlama'),
-            Text('giriş serisi'),
-            Text('gunun challengi'),
-            Text('hedef takibi'),
-            Text('haftalik yarışma'),
+            _SearchAnchorBar(products),
+            Text('kullanıcıya özel selamlama'), // SP içine ekle
+            Text('giriş serisi'),               // SP içine ekle
+            Text('gunun challengi'),            //
+            Text('hedef takibi'),               //
+            Text('haftalik yarışma'),           //
 
             Expanded(
               child: ListView.builder(
@@ -56,31 +58,33 @@ class _FeedViewState extends State<FeedView> {
                 },
               ),
             ),
-
-            SearchAnchor.bar(
-              suggestionsBuilder:
-                  (BuildContext context, SearchController controller) {
-                    final String input = controller.text.toLowerCase();
-
-                    return products
-                        .where(
-                          (item) => item.title.toLowerCase().contains(input),
-                        )
-                        .map(
-                          (filteredItem) => ListTile(
-                            title: Text(filteredItem.title),
-                            onTap: () {
-                              controller.closeView(filteredItem.title);
-                              context.go('/product', extra: filteredItem);
-                            },
-                          ),
-                        )
-                        .toList();
-                  },
-            ),
           ],
         ),
       ),
     );
+  }
+
+  SearchAnchor _SearchAnchorBar(List<ProductModel> products) {
+    return SearchAnchor.bar(
+            suggestionsBuilder:
+                (BuildContext context, SearchController controller) {
+                  final String input = controller.text.toLowerCase();
+
+                  return products
+                      .where(
+                        (item) => item.title.toLowerCase().contains(input),
+                      )
+                      .map(
+                        (filteredItem) => ListTile(
+                          title: Text(filteredItem.title),
+                          onTap: () {
+                            controller.closeView(filteredItem.title);
+                            context.go('/product', extra: filteredItem);
+                          },
+                        ),
+                      )
+                      .toList();
+                },
+          );
   }
 }

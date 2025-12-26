@@ -25,7 +25,7 @@ Future<List<ProductModel>> fetchProducts() async {
 Future<List<HowToModel>> fetchHowTos() async {
   final response = await http.get(
     Uri.parse(
-      'https://raw.githubusercontent.com/kullanici/repo/main/products.json',
+      'https://raw.githubusercontent.com/KorayTemizkan/KnittingApp/main/howTos.json',
     ),
   );
 

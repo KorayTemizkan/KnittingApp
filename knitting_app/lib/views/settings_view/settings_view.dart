@@ -22,7 +22,7 @@ class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'Knitting App - Ayarlar'),
+      appBar: AppBarWidget(title: 'Ayarlar'),
 
       body: Column(
         children: [

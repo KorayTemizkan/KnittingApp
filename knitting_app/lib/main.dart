@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:knitting_app/controllers/providers/how_to_provider.dart';
 import 'package:knitting_app/controllers/settings/music_controller.dart';
 import 'package:knitting_app/controllers/providers/product_provider.dart';
 import 'package:knitting_app/controllers/providers/theme_provider.dart';
@@ -31,15 +32,18 @@ prefs.getStringList(...) gibi çağrılar yaptığında bellekteki Map'ten okur 
   ); // kalıcı veri katmanı oluşturduk
 
   //final musicController = MusicController();
- // await musicController.init();
+  // await musicController.init();
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ProductProvider()),
-        ChangeNotifierProvider(create: (_) => SharedPreferencesProvider(appPreferences)),
+        ChangeNotifierProvider(
+          create: (_) => SharedPreferencesProvider(appPreferences),
+        ),
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ChangeNotifierProvider(create: (_) => AuthProviderFirebase()),
+        ChangeNotifierProvider(create: (_) => HowToProvider()),
       ],
       child: const MyApp(),
     ),
@@ -62,6 +66,8 @@ class _MyAppState extends State<MyApp> {
       context
           .read<ProductProvider>()
           .loadProducts(); // widget ağacı oluşturulduğunda sadece tek bir kere verileri internetten çekiyoruz ve yetiyor
+
+      context.read<HowToProvider>().loadHowTos();
     });
   }
 

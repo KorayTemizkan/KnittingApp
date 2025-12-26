@@ -75,11 +75,9 @@ class AppView extends StatelessWidget {
     return NavigationDestination(
       icon: Icon(
         icon,
-        color: currentIndex == index ? Colors.black : Colors.red,
+        color: currentIndex == index ? Colors.black : Colors.blue,
       ),
       label: label,
     );
   }
-
-
 }

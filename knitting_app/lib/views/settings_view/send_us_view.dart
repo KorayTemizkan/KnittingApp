@@ -7,7 +7,7 @@ class SendUsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'KnittingApp - SendUs'),
+      appBar: AppBarWidget(title: 'Bize gönder'),
 
       body: Column(
         children: [

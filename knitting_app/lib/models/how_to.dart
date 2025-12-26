@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HowToModel {
+// Bunu mesela düğüm atmak gibi düşün, videosu da olucak fotoğrafı da 
+class HowToModel { 
   final int id;
   final String title;
   final String difficulty;
@@ -9,6 +10,7 @@ class HowToModel {
   final String yarnType; // ip türü
   final String hookSize; // Tığ numarası
   final String imageUrl;
+  // BURAYA VIDEO URL'SI DE EKLEYECEGIZ
 
   HowToModel({
     required this.id,

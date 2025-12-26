@@ -7,7 +7,7 @@ class AboutUsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(title: 'KnittingApp - AboutUs'),
+      appBar: AppBarWidget(title: 'Hakkımızda'),
 
       body: Column(
         children: [

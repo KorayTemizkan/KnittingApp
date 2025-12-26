@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:knitting_app/controllers/app_bar.dart';
-import 'package:knitting_app/models/product_model.dart';
 import 'package:knitting_app/controllers/providers/shared_preferences_provider.dart';
+import 'package:knitting_app/models/how_to.dart';
 import 'package:provider/provider.dart';
 
-class ProductView extends StatefulWidget {
-  final ProductModel product;
-  const ProductView({super.key, required this.product});
+class HowToView extends StatefulWidget {
+  final HowToModel howTo;
+  const HowToView({super.key, required this.howTo});
 
   @override
-  State<ProductView> createState() => _ProductViewState();
+  State<HowToView> createState() => _HowToViewState();
 }
 
-class _ProductViewState extends State<ProductView> {
+class _HowToViewState extends State<HowToView> {
+  /*
   bool isSaved = false; // burada neden string kullandın ki gerek yoktu akıllı
   bool isLiked = false;
 
@@ -29,7 +30,7 @@ class _ProductViewState extends State<ProductView> {
 
   unutma ! Provider.of nesne oluşturmaz. O(1)'lik referans oluşturur.
 
-  */
+  */ 
   @override
   void initState() {
     // TODO: implement initState
@@ -54,6 +55,7 @@ ne zaman kullanalım :
       });
     });
   }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -65,20 +67,20 @@ ne zaman kullanalım :
           children: [
             Card(
               child: ListTile(
-                leading: Image.network(widget.product.imageUrl),
-                title: Text(widget.product.title),
+                leading: Image.network(widget.howTo.imageUrl),
+                title: Text(widget.howTo.title),
               ),
             ),
 
-            saveProduct(context),
+            //saveProduct(context),
 
-            likeProduct(context),
+            //likeProduct(context),
           ],
         ),
       ),
     );
   }
-
+/*
   ElevatedButton likeProduct(BuildContext context) => ElevatedButton(
     onPressed: () {},
     child: Text(isLiked ? 'Unlike' : 'Like'),
@@ -108,4 +110,5 @@ ne zaman kullanalım :
       child: Text(isSaved ? 'Unsave' : 'Save'),
     );
   }
+  */
 }
