@@ -26,12 +26,11 @@ class _FeedViewState extends State<FeedView> {
         child: Column(
           children: [
             _SearchAnchorBar(products),
-            Text('kullanıcıya özel selamlama'), // SP içine ekle
-            Text('giriş serisi'),               // SP içine ekle
-            Text('gunun challengi'),            //
-            Text('hedef takibi'),               //
-            Text('haftalik yarışma'),           //
-
+            
+            Text('İLK İNDİRMEDE BAZI SORULAR SORMA KISMI'),
+            Text('kullanıcıya özel selamlama widgeti + streak + hedef takibi'), // SP içine ekle
+            Text('odevler'),         // başlangıça seçilen diffuculty'ye göre sırasıyla product önerelim sırasıyla, ürünü bitir, fotoğrafını bize yolla. onaylarsak olsun.
+                                     // düzeye göre bu herkese atansın, örneğin df 1 düzeyinde 15 tane
             Expanded(
               child: ListView.builder(
                 itemCount: products.length,

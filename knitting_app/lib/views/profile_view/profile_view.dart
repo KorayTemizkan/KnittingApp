@@ -78,10 +78,6 @@ class _ProfileViewState extends State<ProfileView> {
       body: Center(
         child: Column(
           children: [
-            Text('kullanıcı kartı'),
-            Text('beğenilenler'),
-            Text('SSS'),
-            SizedBox(height: 15),
             Text('KULLANICI BILGILERI'),
             Text(auth.email ?? 'Giris yapilmadi'),
             Text(auth.uid ?? 'ID yok'),

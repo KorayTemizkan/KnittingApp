@@ -26,7 +26,8 @@ class _SearchViewState extends State<ExploreView> {
       body: Center(
         child: Column(
           children: [
-            Text('ARAMA KISMINI WIDGET YAP VE ORTAK KULLANIMA AÇ'),
+            Text('ARAMA KISMINI WIDGET YAP VE ORTAK KULLANIMA AÇ, PRODUCTS İÇİN DE YANİ'),
+            Text('SQFLİTE İLE YEREL DEPOLAMA VE FİREBASE İLE YEDEKLEME YAP'),
 
             TextField(
               controller: messageController,
@@ -70,7 +71,6 @@ class _SearchViewState extends State<ExploreView> {
               ),
             ),
 
-            Text('Odevler'), // Products'dan hallederiz
             Text(
               'Yapay Zeka\'ya sor bölümümüzü geliştiriyoruz!',
               textAlign: TextAlign.center,

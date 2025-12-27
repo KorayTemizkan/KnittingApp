@@ -39,6 +39,8 @@ class _SettingsViewState extends State<SettingsView> {
                   ),
                 ),
 
+                Divider(height: 5),
+
                 ListTile(
                   title: const Text('Biz kimiz?'),
                   onTap: () {
@@ -46,12 +48,16 @@ class _SettingsViewState extends State<SettingsView> {
                   },
                 ),
 
+                Divider(height: 5),
+                
                 ListTile(
                   title: const Text('Bize sor!'),
                   onTap: () {
                     context.push('/settings/sendUs');
                   },
                 ),
+
+                Divider(height: 5),
 
                 ListTile(
                   title: const Text('Giris yap!'),
@@ -60,6 +66,8 @@ class _SettingsViewState extends State<SettingsView> {
                   },
                 ),
 
+                Divider(height: 5),
+
                 ListTile(
                   title: const Text('Kaydol'),
                   onTap: () {
@@ -67,13 +75,24 @@ class _SettingsViewState extends State<SettingsView> {
                   },
                 ),
 
+                Divider(height: 5),
+
+                ListTile(
+                  title: const Text('SSS'),
+                  onTap: () {
+                    context.push('/settings/SSS');
+                  },
+                ),
+
+                Divider(height: 5),
+
                 ListTile(
                   title: const Text('Dil secimi yap'),
                   trailing: DropdownButton<String>(
                     value: selectedLanguage,
                     items: const [
-                      DropdownMenuItem(value: 'TR', child: Text('Türkçe')),
-                      DropdownMenuItem(value: 'AZ', child: Text('Azerbaycan Dili')),
+                      DropdownMenuItem(value: 'TR', child: Text('Türkçe (Şimdilik tek dil!)')),
+                      DropdownMenuItem(value: 'AZ', child: Text('Azerbaycan Dili (Yakında!)')),
                     ],
 
                     onChanged: (value) {
@@ -83,6 +102,8 @@ class _SettingsViewState extends State<SettingsView> {
                     },
                   ),
                 ),
+                
+                Divider(height: 5),
 
                 ListTile(
                   title: const Text('Bizi puanla!'),
@@ -91,6 +112,8 @@ class _SettingsViewState extends State<SettingsView> {
                     '5P7Fem6SvZE',
                   ), // ()=> Kullanıcı tıkladıktan sonra bu fonksiyonu çalıştır demektir
                 ),
+
+                Divider(height: 5),
 
                 Row(
                   children: [
