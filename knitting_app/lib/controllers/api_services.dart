@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:knitting_app/models/how_to.dart';
+import 'package:knitting_app/models/how_to_model.dart';
 import 'dart:convert';
 import 'dart:async';
 import 'package:knitting_app/models/product_model.dart';

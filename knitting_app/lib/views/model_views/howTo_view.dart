@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knitting_app/controllers/app_bar.dart';
 import 'package:knitting_app/controllers/providers/shared_preferences_provider.dart';
-import 'package:knitting_app/models/how_to.dart';
+import 'package:knitting_app/models/how_to_model.dart';
 import 'package:provider/provider.dart';
 
 class HowToView extends StatefulWidget {

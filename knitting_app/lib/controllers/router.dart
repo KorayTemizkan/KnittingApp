@@ -3,12 +3,14 @@ import 'package:go_router/go_router.dart';
 import 'package:knitting_app/controllers/app_view.dart';
 import 'package:knitting_app/controllers/settings/user/register.dart';
 import 'package:knitting_app/controllers/settings/user/signIn.dart';
-import 'package:knitting_app/models/how_to.dart';
+import 'package:knitting_app/models/how_to_model.dart';
+import 'package:knitting_app/models/knitting_cafe_model.dart';
 import 'package:knitting_app/models/product_model.dart';
 import 'package:knitting_app/views/community_view/community_view.dart';
 import 'package:knitting_app/views/feed_view/feed_view.dart';
 import 'package:knitting_app/views/first_open_view.dart';
 import 'package:knitting_app/views/model_views/howTo_view.dart';
+import 'package:knitting_app/views/model_views/knitting_cafe_view.dart';
 import 'package:knitting_app/views/model_views/product_view.dart';
 import 'package:knitting_app/views/profile_view/profile_view.dart';
 import 'package:knitting_app/views/explore_view/explore_view.dart';
@@ -41,6 +43,7 @@ class AppRoutes {
 
   static const String product = 'product';
   static const String howTo = 'howTo';
+  static const String knittingCafe = 'knittingCafe';
 }
 
 final router = GoRouter(
@@ -102,10 +105,7 @@ final router = GoRouter(
           builder: (context, state) => RegisterView(),
         ),
 
-        GoRoute(
-          path: AppRoutes.sss,
-          builder: (context, state) => SssView(),
-        ),
+        GoRoute(path: AppRoutes.sss, builder: (context, state) => SssView()),
       ],
     ),
   ], // bottom bar ile alt barı tek seferde hallediyoruz
@@ -131,6 +131,14 @@ StatefulShellRoute _bottomBar() {
                 builder: (context, state) {
                   final product = state.extra as ProductModel;
                   return ProductView(product: product);
+                },
+              ),
+
+              GoRoute(
+                path: AppRoutes.knittingCafe,
+                builder: (context, state) {
+                  final knittingCafe = state.extra as KnittingCafeModel;
+                  return KnittingCafeView(knittingCafe: knittingCafe);
                 },
               ),
             ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knitting_app/controllers/api_services.dart';
-import 'package:knitting_app/models/how_to.dart';
+import 'package:knitting_app/models/how_to_model.dart';
 
 class HowToProvider extends ChangeNotifier {
   List<HowToModel> _howTos = [];

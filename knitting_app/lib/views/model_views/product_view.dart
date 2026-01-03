@@ -80,7 +80,11 @@ ne zaman kullanalım :
   }
 
   ElevatedButton likeProduct(BuildContext context) => ElevatedButton(
-    onPressed: () {},
+    onPressed: () {
+      setState(() {
+        isLiked = !isLiked;
+      });
+    },
     child: Text(isLiked ? 'Unlike' : 'Like'),
   );
 

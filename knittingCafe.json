@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "İlmek & Kahve",
+    "address": "Kemalpaşa Mah. Örgü Sok. No:12, Serdivan / Sakarya",
+    "phone": "+90 555 123 45 67",
+    "features": [
+      "Amigurumi atölyeleri",
+      "Örgü ve tığ işi workshopları",
+      "Serbest örgü alanı",
+      "Kahve ve ev yapımı tatlılar",
+      "Örgü malzemeleri satışı"
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/ilmekvekahve",
+      "tiktok": "https://tiktok.com/@ilmekvekahve"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Loop Cafe",
+    "address": "Kadıköy / İstanbul",
+    "phone": "+90 216 000 00 00",
+    "features": [
+      "Serbest örgü alanı",
+      "Kahve"
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/loopcafe",
+      "facebook": "https://facebook.com/loopcafe",
+      "twitter": "https://twitter.com/loopcafe"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Yün & Muhabbet",
+    "address": "Bornova / İzmir",
+    "phone": "+90 232 111 11 11",
+    "features": [
+      "Başlangıç seviyesi örgü eğitimi",
+      "Haftalık örgü buluşmaları"
+    ],
+    "socialMedia": {
+      "instagram": "https://instagram.com/yunvemuhabbet"
+    }
+  }
+]
