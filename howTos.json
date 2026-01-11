@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Amigurumi Ayıcık",
+    "title": "İp Birleştirmek",
     "difficulty": "medium",
     "estimatedHour": "5 hours",
     "colors": ["brown", "beige", "pink"],
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "title": "Kışlık Düz Örgü Atkı",
+    "title": "Düğüm yapmak",
     "difficulty": "easy",
     "estimatedHour": "3 hours",
     "colors": ["cream", "grey", "navy"],
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "title": "Bebek Patiği",
+    "title": "İç içe geçirmek",
     "difficulty": "medium",
     "estimatedHour": "2 hours",
     "colors": ["pink", "white", "baby blue"],
