@@ -69,7 +69,7 @@ class _OnboardingViewState extends State<FirstOpenView> {
                   onPressed: () {
                     context
                         .read<SharedPreferencesProvider>()
-                        .finishSetFirstOpening();
+                        .setFirstOpening();
                     context.push('/settings/register');
                   },
                   child: const Text("Kaydol!"),
@@ -79,7 +79,7 @@ class _OnboardingViewState extends State<FirstOpenView> {
                   onPressed: () {
                     context
                         .read<SharedPreferencesProvider>()
-                        .finishSetFirstOpening();
+                        .setFirstOpening();
                     context.push('/settings/signIn');
                   },
                   child: const Text("Zaten hesabın mı var? Giriş yap!"),
@@ -91,7 +91,7 @@ class _OnboardingViewState extends State<FirstOpenView> {
                   onPressed: () {
                     context
                         .read<SharedPreferencesProvider>()
-                        .finishSetFirstOpening();
+                        .setFirstOpening();
                     context.push(AppRoutes.feed);
                   },
                   child: const Text("Doğruca uygulamaya giriş yap!"),

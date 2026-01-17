@@ -86,9 +86,8 @@ class SupabaseProvider extends ChangeNotifier {
     imageUrl = supabase.storage.from('posts-images').getPublicUrl(fileName);
   }
 
-  // DATABASE FONKSİYONLARI
+  // DATABASE - POSTS FONKSİYONLARI
 
-  // Dönüş tipini ayarla
   Future<void> readPosts() async {
     final data = await supabase.from('posts').select();
     posts = List<Map<String, dynamic>>.from(data);
@@ -113,4 +112,15 @@ class SupabaseProvider extends ChangeNotifier {
   Future<void> delete({required String header}) async {
     await supabase.from('posts').delete().eq('column', header);
   }
+
+  // DATABASE - PROFİL FONKSİYONLARI
+  
+  /*
+  Future<void> fetchProfile() async {
+    final data = await supabase
+        .from('profiles')
+        .select()
+        .eq('id', supabase.auth.currentUser.id);
+  }
+  */
 }

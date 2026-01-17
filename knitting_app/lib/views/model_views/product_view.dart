@@ -30,29 +30,15 @@ class _ProductViewState extends State<ProductView> {
   unutma ! Provider.of nesne oluşturmaz. O(1)'lik referans oluşturur.
 
   */
-  @override
+@override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
-    final sharedPreferencesProvider = Provider.of<SharedPreferencesProvider>(
-      context,
-      listen: false,
-    ); // listen: false ile bu provideri sadece oku diyor
-    /* eğer böyle olsaydı:
-final sp = Provider.of<SharedPreferencesProvider>(context);
+    final sp = context.read<SharedPreferencesProvider>();
 
-widget bu providera abone olur. provider içinde notify listeners çağrılırsa widget rebuild olur
-ne zaman kullanalım :
+    final list = sp.savedCharacters;
 
-örneğin ekranda veri göstereceğiz (mesela streak),
-    */
-    sharedPreferencesProvider.finishGetSavedCharacters().then((list) {
-      setState(() {
-        savedCharactersList = list;
-        isSaved = savedCharactersList.contains(widget.product.id.toString());
-      });
-    });
+    isSaved = list.contains(widget.product.id.toString());
   }
 
   @override
@@ -92,26 +78,21 @@ ne zaman kullanalım :
 
   ElevatedButton saveProduct(BuildContext context) {
     return ElevatedButton(
-      onPressed: () async {
-        final sharedPreferencesProvider =
-            Provider.of<SharedPreferencesProvider>(context, listen: false);
+      onPressed: () {
+        final sp = context.read<SharedPreferencesProvider>();
 
         if (isSaved) {
-          await sharedPreferencesProvider.finishRemoveCharacter(
-            widget.product.id,
-          );
+          sp.removeCharacter(widget.product.id);
         } else {
-          await sharedPreferencesProvider.finishSaveCharacter(
-            widget.product.id,
-          );
+          sp.saveCharacter(widget.product.id);
         }
 
         setState(() {
           isSaved = !isSaved;
         });
       },
-
       child: Text(isSaved ? 'Unsave' : 'Save'),
     );
   }
+
 }

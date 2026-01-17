@@ -57,6 +57,7 @@ class _SettingsViewState extends State<SettingsView> {
                 /*
                 AÇIK/KOYU TEMA
                 BİZ KİMİZ? + Fidan ve beni tanıtan görsellerle ve YT videosuyla süslenmiş bir sayfa
+                GÜNCELLEME NOTLARI
                 BİZE SOR + Burada explore sayfasındaki fonksiyonun aynısını ekliyoruz WP DESTEK HATTI YANİ
                 GİRİŞ YAP, KAYDOL, HESABIMI SİL
                 SIK SORULAN SORULAR
@@ -95,6 +96,15 @@ class _SettingsViewState extends State<SettingsView> {
                 Divider(height: 5),
 
                 ListTile(
+                  title: const Text('Güncelleme Notları'),
+                  onTap: () {
+                    context.push('/settings/releaseNotes');
+                  },
+                ),
+
+                Divider(height: 5),
+
+                ListTile(
                   title: const Text('Bize sor!'),
                   onTap: () {
                     _showMyDialog();
@@ -123,7 +133,16 @@ class _SettingsViewState extends State<SettingsView> {
 
                 ListTile(
                   title: const Text('Gizlilik Politikası'),
-                  onTap: () {},
+                  onTap: () {
+                    context.go('/settings/privacyPolicy');
+                  },
+                ),
+
+                ListTile(
+                  title: const Text('Kullanım Koşulları'),
+                  onTap: () {
+                    context.go('/settings/termsOfUse');
+                  },
                 ),
 
                 Divider(height: 5),

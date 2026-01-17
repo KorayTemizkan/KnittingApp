@@ -151,6 +151,20 @@ class _SearchViewState extends State<ExploreView> {
                     },
                     child: Text('Yapay Zekaya Sor'),
                   ),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      context.go('/search/assignments');
+                    },
+                    child: Text('Ödevlerim'),
+                  ),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      context.go('/search/sss');
+                    },
+                    child: Text('Sözlük'),
+                  ),
                 ],
               ),
             ),

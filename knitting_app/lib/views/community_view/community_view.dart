@@ -62,6 +62,8 @@ class _CommunityViewState extends State<CommunityView> {
             */
             SizedBox(height: 10),
 
+            Text('GÖNDERİ ATMA'),
+
             TextField(
               controller: _headerController,
               decoration: InputDecoration(
@@ -105,6 +107,13 @@ class _CommunityViewState extends State<CommunityView> {
 
             Divider(height: 50, thickness: 15, color: Colors.amber),
 
+            Text('TÜM KULLANICILAR'),
+            // Şimdilik tüm kullanıcıları listeleme fonksiyonu ekleyelim
+            Divider(height: 50, thickness: 15, color: Colors.amber),
+
+            
+            Text('GÖNDERİLERİM'),
+          
             Expanded(
               child: Consumer<SupabaseProvider>(
                 // provider içindeki veriyi dinleyip sadece o widgeti yeniden çizmek için kullanılan bir widgettir.
@@ -127,6 +136,9 @@ class _CommunityViewState extends State<CommunityView> {
                 },
               ),
             ),
+
+
+
 
             // Tüm gönderiler
             //ListView.builder(itemCount: 10, itemBuilder: (context, index) {}),

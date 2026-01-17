@@ -16,9 +16,12 @@ import 'package:knitting_app/views/model_views/product_view.dart';
 import 'package:knitting_app/views/profile_view/profile_view.dart';
 import 'package:knitting_app/views/explore_view/explore_view.dart';
 import 'package:knitting_app/views/settings_view/about_us_view.dart';
+import 'package:knitting_app/views/settings_view/privacy_policy_view.dart';
+import 'package:knitting_app/views/settings_view/release_notes_view.dart';
 import 'package:knitting_app/views/settings_view/settings_view.dart';
 import 'package:knitting_app/controllers/providers/shared_preferences_provider.dart';
 import 'package:knitting_app/views/settings_view/sss_view.dart';
+import 'package:knitting_app/views/settings_view/terms_of_use_view.dart';
 import 'package:provider/provider.dart';
 
 // Tüm uygulama geçişleri için tek bir navigator anahtarı oluşturuyoruz.
@@ -35,10 +38,13 @@ class AppRoutes {
 
   static const String settings = "/settings";
   static const String aboutUs = "/aboutUs";
+  static const String releaseNotes = "/releaseNotes";
   static const String signIn = '/signIn';
   static const String register = '/register';
   static const String firstOpen = '/firstOpen';
   static const String sss = '/sss';
+  static const String termsOfUse = '/termsOfUse';
+  static const String privacyPolicy = '/privacyPolicy';
   static const String ai = '/ai';
 
   static const String notepad = '/notepad';
@@ -54,18 +60,13 @@ final router = GoRouter(
   navigatorKey:
       _routerKey, // uygulamanın herhangi bir yerinden navigatorKey.currentState üzerinden navigator'e erişme imkanı verir
 
-  redirect: (context, state) async {
-    final sharedPreferencesProvider = Provider.of<SharedPreferencesProvider>(
-      context,
-      listen: false,
-    );
+  redirect: (context, state) {
+    final sp = context.read<SharedPreferencesProvider>();
 
-    final isFirstOpen = sharedPreferencesProvider.isFirstOpen;
-    final isOnboarding =
-        state.uri.path == AppRoutes.firstOpen; // şu anda sayfada mı konrolü
+    final isFirstOpen = sp.isFirstOpen;
+    final isOnboarding = state.uri.path == AppRoutes.firstOpen;
 
     if (isFirstOpen && !isOnboarding) {
-      sharedPreferencesProvider.finishSetFirstOpening();
       return AppRoutes.firstOpen;
     }
 
@@ -100,11 +101,24 @@ final router = GoRouter(
         ),
 
         GoRoute(
+          path: AppRoutes.releaseNotes,
+          builder: (context, state) => ReleaseNotesView(),
+        ),
+
+        GoRoute(
           path: AppRoutes.register,
           builder: (context, state) => RegisterView(),
         ),
+        
+         GoRoute(
+          path: AppRoutes.privacyPolicy,
+          builder: (context, state) => PrivacyPolicyView(),
+        ),
 
-        GoRoute(path: AppRoutes.sss, builder: (context, state) => SssView()),
+         GoRoute(
+          path: AppRoutes.termsOfUse,
+          builder: (context, state) => TermsOfUseView(),
+        ),
       ],
     ),
   ], // bottom bar ile alt barı tek seferde hallediyoruz
@@ -163,6 +177,11 @@ StatefulShellRoute _bottomBar() {
               GoRoute(
                 path: AppRoutes.ai,
                 builder: (context, state) => AiView(),
+              ),
+
+              GoRoute(
+                path: AppRoutes.sss,
+                builder: (context, state) => SssView(),
               ),
             ],
           ),

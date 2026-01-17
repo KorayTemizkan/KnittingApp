@@ -46,7 +46,8 @@ class _FeedViewState extends State<FeedView> {
             // KNİTTİNG CAFELERİ KEŞFET ( Yana kaydırmalık )
 
             // EN ÇOK BEĞENİLEN/FAVORİLENEN PRODUCTS KISMI OLSUN, AKIŞ GİBİ( Aşağı kaydırmalık 4'lü grid), BURAYI EKLE, ANALYTİCS,
-            //Text('Merhaba ${auth.email}\n${streak} gündür bizimlesin'),
+
+            Text('Merhaba x gündür bizimlesin'),
 
             Divider(height: 50, thickness: 15, color: Colors.amber),
 
@@ -60,36 +61,6 @@ class _FeedViewState extends State<FeedView> {
               },
             ),
             
-            Divider(height: 50, thickness: 15, color: Colors.amber),
-
-            Text('Ödevler'),
-            Expanded(
-              child: ListView.builder(
-                itemCount: products.length,
-                itemBuilder: (context, index) {
-                  final p = products[index];
-
-                  return Card(
-                    child: ListTile(
-                      onTap: () {
-                        context.go('/product', extra: p);
-                      },
-
-                      leading: Image.network(
-                        p.imageUrl,
-                        width: 60,
-                        height: 60,
-                        fit: BoxFit.cover,
-                      ),
-
-                      title: Text(p.title),
-                      subtitle: Text("${p.difficulty}, ${p.estimatedHour}"),
-                    ),
-                  );
-                },
-              ),
-            ),
-
             Divider(height: 50, thickness: 15, color: Colors.amber),
 
             Text('Yeni eklenenler'),

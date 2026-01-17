@@ -32,19 +32,21 @@ class _ProfileViewState extends State<ProfileView> {
 
   // BU İKİ FONKSİYON İNTERNET OLMADIĞINDA BAĞLANMAK İÇİN
 
-  Future<void> _loadSavedIds() async {
-    final sharedPreferencesProvider = context.read<SharedPreferencesProvider>();
-    final stringList = await sharedPreferencesProvider
-        .finishGetSavedCharacters();
+  void _loadSavedIds() {
+    final sp = context.read<SharedPreferencesProvider>();
+
+    final stringList = sp.savedCharacters;
 
     setState(() {
       savedIds = stringList
           .map((e) => int.tryParse(e))
           .whereType<int>()
           .toList();
-      photoPath = sharedPreferencesProvider.profilePhoto;
-    }); // setstate kullanıyoruz çünkü bu dosyadaki savedID's değeri değişecek
+
+      photoPath = sp.profilePhoto;
+    });
   }
+
 
   /// 🔹 savedIds sırasına göre product.id eşleştirir
   /// artık productMap[3] -> Bere gibi oldu
@@ -65,7 +67,6 @@ class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     final products = context.watch<ProductProvider>().products;
-    final authProvider = context.watch<AuthProviderFirebase>();
     final notesProvider = context.watch<NotesProvider>();
     notes = notesProvider.notes;
 
@@ -83,6 +84,8 @@ class _ProfileViewState extends State<ProfileView> {
       body: Center(
         child: Column(
           children: [
+            /*
+
             // 4 UNSUR OLUCAK
 
             // PROFİL
@@ -94,8 +97,8 @@ class _ProfileViewState extends State<ProfileView> {
                 crossAxisCount: 4,
                 children: <Widget>[
                   Text('KULLANICI BILGILERI'),
-                  Text(authProvider.email ?? 'Giris yapilmadi'),
-                  Text(authProvider.uid ?? 'ID yok'),
+                  //Text(authProvider.email ?? 'Giris yapilmadi'),
+                  //Text(authProvider.uid ?? 'ID yok'),
 
                   photoPath != null
                       ? Image.file(
@@ -204,6 +207,8 @@ class _ProfileViewState extends State<ProfileView> {
                 },
               ),
             ),
+
+            */
           ],
         ),
       ),

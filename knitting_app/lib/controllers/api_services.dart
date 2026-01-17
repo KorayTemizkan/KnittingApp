@@ -8,6 +8,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:knitting_app/models/release_note_model.dart';
+
 Future<List<ProductModel>> fetchProducts() async {
   final response = await http.get(
     Uri.parse(
@@ -58,6 +60,24 @@ Future<List<KnittingCafeModel>> fetchKnittingCafes() async {
   } else {
     throw Exception(
       'Failed to load knittingCafes. Code: ${response.statusCode}, Reason: ${response.reasonPhrase}',
+    );
+  }
+}
+
+Future<List<ReleaseNoteModel>> fetchReleaseNotes() async {
+  final response = await http.get(
+    Uri.parse(
+      'https://raw.githubusercontent.com/KorayTemizkan/KnittingApp/main/releaseNotes.json',
+    ),
+  );
+
+  if (response.statusCode == 200) {
+    final List<dynamic> jsonList = jsonDecode(response.body);
+
+    return jsonList.map((item) => ReleaseNoteModel.fromMap(item)).toList();
+  } else {
+    throw Exception(
+      'Failed to load releaseNotes. Code: ${response.statusCode}, Reason: ${response.reasonPhrase}',
     );
   }
 }
