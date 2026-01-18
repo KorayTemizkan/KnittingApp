@@ -1,4 +1,4 @@
-TIGCIK (Knitting App)
+TIĞCIK (Knitting App)
 
 Tığcık, örgüseverler için geliştirilen bir Flutter tabanlı mobil uygulamadır.
 Uygulama; kullanıcıların örgü tariflerini keşfetmesini, kaydetmesini ve öğrenme sürecini daha keyifli ve erişilebilir hâle getirmesini amaçlamaktadır.
@@ -24,7 +24,7 @@ Ayrıca sosyal medya özellikleri sayesinde kullanıcıların birbirleriyle etki
     Çevrimdışı kullanım desteği
 
 
-KULLANILAN TEKNOLOJILER
+KULLANILAN TEKNOLOJİLER
 
     Flutter & Dart
     Provider (state management)
@@ -39,10 +39,10 @@ KULLANILAN TEKNOLOJILER
     path ve image_picker (yerelden dosya yükleme işlemi)
     Supabase (sosyal medya içerikleri)
 
-GELISTIRICI
+GELİŞTİRİCİ
 
 Koray Temizkan
-Bilgisayar Muhendisligi Ogrencisi & Flutter Developer
+Bilgisayar Mühendisliği Öğrencisi & Mobil Flutter Geliştiricisi
 
 ## License
 This project is licensed under All Rights Reserved.
