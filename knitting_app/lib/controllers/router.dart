@@ -23,6 +23,7 @@ import 'package:knitting_app/views/profile_view/posts_view.dart';
 import 'package:knitting_app/views/profile_view/profile_view.dart';
 import 'package:knitting_app/views/explore_view/explore_view.dart';
 import 'package:knitting_app/views/profile_view/saveds_view.dart';
+import 'package:knitting_app/views/profile_view/share_view.dart';
 import 'package:knitting_app/views/profile_view/unfinisheds_view.dart';
 import 'package:knitting_app/views/search_view/search_view.dart';
 import 'package:knitting_app/views/settings_view/about_us_view.dart';
@@ -69,6 +70,7 @@ class AppRoutes {
   static const String posts = 'posts';
   static const String notes = 'notes';
   static const String unfinisheds = 'unfinisheds';
+  static const String share = 'share';
 
   // AYARLAR
   static const String settings = "/settings";
@@ -258,6 +260,12 @@ StatefulShellRoute _bottomBar() {
                 path: AppRoutes.editProfile,
                 builder: (context, state) => EditProfileView(),
               ),
+              
+              GoRoute(
+                path: AppRoutes.share,
+                builder: (context, state) => ShareView(),
+              ),
+
               GoRoute(
                 path: AppRoutes.unfinisheds,
                 builder: (context, state) => UnfinishedsView(),

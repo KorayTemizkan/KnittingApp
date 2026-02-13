@@ -27,13 +27,13 @@ class VerticalCardList extends StatelessWidget {
     // yatay liste mutlaka bir yükseklik ister. Biz bunu ayarlıyoruz. SizedBox nedeni bu
     return GridView.builder(
       shrinkWrap: true,
+      padding: const EdgeInsets.only(left: 8,right: 16),
       physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: 6),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: crossAxisCount,
         mainAxisExtent: cardHeight,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
+        crossAxisSpacing: 0,
+        mainAxisSpacing: 8,
       ),
       itemCount: itemCount,
       itemBuilder: itemBuilder,

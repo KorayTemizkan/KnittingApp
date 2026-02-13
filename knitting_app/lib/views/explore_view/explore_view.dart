@@ -113,7 +113,7 @@ Allah rızası için filan diyor. Yardımcı olur musun kurban oldluğum.
             },
           ),
 
-          TitleTextWithCategory(title: 'Keşfet'),
+          TitleTextWithCategory(title: 'Toplu Eğitimler'),
 
           TripleSegmentButton(
             titles: ['Eğitimler', 'Tarifler', 'Desenler'],

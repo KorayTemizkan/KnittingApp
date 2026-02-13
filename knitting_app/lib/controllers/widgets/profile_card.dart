@@ -5,8 +5,8 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16),
-      padding: EdgeInsets.only(bottom: 20),
+      margin: EdgeInsets.only(top: 16, left: 16, right: 16),
+      padding: EdgeInsets.only(bottom: 16),
 
       decoration: BoxDecoration(
         color: Colors.white,
@@ -85,25 +85,45 @@ class ProfileCard extends StatelessWidget {
 
           // Düzenle ve Sosyal Medya
           Padding(
-            padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+            padding: const EdgeInsets.all(16.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ElevatedButton.icon(
-                  onPressed: () {
-                    context.go('/profile/editProfile');
-                  },
-                  icon: const Icon(Icons.edit),
-                  label: const Text('Düzenle'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFFF5722),
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      context.go('/profile/editProfile');
+                    },
+                    icon: const Icon(Icons.edit),
+                    label: const Text('Düzenle'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFFF5722),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                   ),
                 ),
-
+            
+                SizedBox(width: 16),
+            
+                Expanded(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      context.go('/profile/share');
+                    },
+                    icon: const Icon(Icons.share),
+                    label: const Text('Paylaş'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFFF5722),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

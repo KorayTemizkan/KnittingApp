@@ -123,7 +123,7 @@ class _ProfileViewState extends State<ProfileView> {
         children: [
           ProfileCard(), // Yukarıdaki widget'ı burada çağırıyorsun
 
-          TitleText(text: 'Sosyal Medya Hesaplarım'),
+          TitleText(text: 'Hesaplarım'),
           CardList(
             widgets: [
               Padding(
