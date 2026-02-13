@@ -39,7 +39,7 @@ class SuccessCard extends StatelessWidget {
             value,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 16,
+              fontSize: 18,
               color: Colors.black87,
             ),
           ),

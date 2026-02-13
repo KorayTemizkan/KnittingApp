@@ -21,11 +21,11 @@ class AppView extends StatelessWidget {
             indicatorColor: Colors.transparent,
             iconTheme: WidgetStateProperty.resolveWith((states) {
               if (states.contains(WidgetState.selected)) {
-                return const IconThemeData(color: Color(0xFFFF5722), size: 32);
+                return const IconThemeData(color: Color(0xFFFF5722), size: 24);
               }
               return const IconThemeData(
                 color: Color(0xFF1E1E1E),
-                size: 22,
+                size: 24,
               ); 
             }),
           ),
@@ -39,7 +39,8 @@ class AppView extends StatelessWidget {
                 .alwaysHide, // Yazıları tamamen gizler
             destinations: [
               _menuItem(context, icon: Icons.home, label: 'Ana Sayfa'),
-              _menuItem(context, icon: Icons.school, label: 'Eğitim'),
+              _menuItem(context, icon: Icons.search, label: 'Keşfet'),
+              _menuItem(context, icon: Icons.import_contacts, label: 'Eğitim'),
               _menuItem(context, icon: Icons.groups, label: 'Topluluk'),
               _menuItem(context, icon: Icons.account_circle, label: 'Profil'),
             ],

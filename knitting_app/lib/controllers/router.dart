@@ -24,6 +24,7 @@ import 'package:knitting_app/views/profile_view/profile_view.dart';
 import 'package:knitting_app/views/explore_view/explore_view.dart';
 import 'package:knitting_app/views/profile_view/saveds_view.dart';
 import 'package:knitting_app/views/profile_view/unfinisheds_view.dart';
+import 'package:knitting_app/views/search_view/search_view.dart';
 import 'package:knitting_app/views/settings_view/about_us_view.dart';
 import 'package:knitting_app/views/settings_view/privacy_policy_view.dart';
 import 'package:knitting_app/views/settings_view/release_notes_view.dart';
@@ -44,7 +45,10 @@ class AppRoutes {
       '/'; // static sayesinde nesne oluşturmadan doğruca ileride AppRoutes.search diye erişebiliyoruz
   static const String knittingCafe = 'knittingCafe';
 
-  // ATÖLYE
+  // KEŞFET
+  static const String kesfet = '/kesfet';
+
+  // EĞİTİM
   static const String search = '/search';
   static const String product = 'product';
   static const String howTo = 'howTo';
@@ -179,6 +183,16 @@ StatefulShellRoute _bottomBar() {
                 },
               ),
             ],
+          ),
+        ],
+      ),
+
+      //  KEŞFET
+      StatefulShellBranch(
+        routes: [
+          GoRoute(
+            path: AppRoutes.kesfet,
+            builder: (context, state) => SearchView(),
           ),
         ],
       ),

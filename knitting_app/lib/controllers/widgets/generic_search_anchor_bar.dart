@@ -43,7 +43,7 @@ class GenericSearchAnchorBar<T extends Searchable> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 8, right: 8, bottom: 8),
+      padding: EdgeInsets.only(left: 16, right: 16, bottom: 8),
 
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

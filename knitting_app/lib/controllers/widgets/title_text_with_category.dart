@@ -100,7 +100,7 @@ class TitleTextWithCategory extends StatelessWidget {
                     children: const [
                       Icon(
                         Icons.layers_outlined,
-                        color: Color(0xFF1E1E1E),
+                        color: Color(0xFFFF5722),
                         size: 18,
                       ),
                       SizedBox(width: 10),

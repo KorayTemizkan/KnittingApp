@@ -9,9 +9,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(title),
+      title: Text(title, style: TextStyle(color: Color(0xFFFF5722),fontWeight: FontWeight.bold),),
 
-       bottom: PreferredSize(
+      bottom: PreferredSize(
         preferredSize: const Size.fromHeight(1),
         child: Container(height: 0.5, color: Color(0xFFFF5722)),
       ),
@@ -19,11 +19,14 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       scrolledUnderElevation: 0,
 
-
       actions: [
         IconButton(
           onPressed: () => context.push(AppRoutes.settings),
-          icon: const Icon(color: Color(0xFFFF5722),Icons.settings),
+          icon: const Icon(color: Color(0xFFFF5722), Icons.notifications),
+        ),
+        IconButton(
+          onPressed: () => context.push(AppRoutes.settings),
+          icon: const Icon(color: Color(0xFFFF5722), Icons.settings),
         ),
       ],
     );

@@ -19,7 +19,7 @@ class ContestCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      margin: EdgeInsets.symmetric(horizontal: 16),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -55,6 +55,14 @@ class ContestCard extends StatelessWidget {
                     Text(difficulty, style: TextStyle(color: Colors.grey)),
                   ],
                 ),
+                Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.share_outlined),
+                  color: Color(0xFFFF5722),
+                  iconSize: 24,
+                ),
+                
               ],
             ),
 
@@ -94,23 +102,28 @@ class ContestCard extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {
-                }, icon: Icon(Icons.favorite_outline), color: Color(0xFFFF5722),iconSize: 24),
-
-                const SizedBox(width: 8),
-
-                IconButton(onPressed: () {}, icon: Icon(Icons.bookmark_border),color: Color(0xFFFF5722), iconSize: 24,),
-                IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.share_outlined),
+                  icon: Icon(Icons.favorite_outline),
                   color: Color(0xFFFF5722),
                   iconSize: 24,
                 ),
-                
+                Text('127'),
+                SizedBox(width: 8),
+
+
+               IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.favorite_outline),
+                  color: Color(0xFFFF5722),
+                  iconSize: 24,
+                ),
+                Text('127'),
+                SizedBox(width: 8),
+
                 const Spacer(),
                 ElevatedButton.icon(
                   onPressed: () {},
-                  icon: const Icon(Icons.star),
+                  icon: const Icon(Icons.visibility_outlined),
                   label: const Text('Ayrıntılar'),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFFF5722),

@@ -1,24 +1,17 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:knitting_app/controllers/providers/auth_provider.dart';
 import 'package:knitting_app/controllers/providers/knitting_cafe_provider.dart';
 import 'package:knitting_app/controllers/providers/product_provider.dart';
 import 'package:knitting_app/controllers/providers/shared_preferences_provider.dart';
 import 'package:knitting_app/controllers/widgets/bonus_card.dart';
 import 'package:knitting_app/controllers/widgets/card_list.dart';
-import 'package:knitting_app/controllers/widgets/comment_section.dart';
 import 'package:knitting_app/controllers/widgets/content_card.dart';
 import 'package:knitting_app/controllers/widgets/contest_card.dart';
-import 'package:knitting_app/controllers/widgets/generic_search_anchor_bar.dart';
+import 'package:knitting_app/controllers/widgets/hero_section_card.dart';
 import 'package:knitting_app/controllers/widgets/horizontal_card_list.dart';
 import 'package:knitting_app/controllers/widgets/info_card.dart';
 import 'package:knitting_app/controllers/widgets/title_text.dart';
-import 'package:knitting_app/controllers/widgets/title_with_icon.dart';
 import 'package:knitting_app/controllers/widgets/title_with_see_all.dart';
-import 'package:knitting_app/models/product_model.dart';
-import 'package:knitting_app/models/searchable_model.dart';
-import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 import 'package:knitting_app/controllers/app_bar.dart';
 
@@ -42,71 +35,9 @@ class _FeedViewState extends State<FeedView> {
 
       body: ListView(
         children: [
-          Card(
-            // margin: En dışta yatay ve dikey ne kadar boşluk olacağını ayarlar
-            margin: EdgeInsets.only(top: 8, left: 16, right: 16),
-            // elevation: Kartın altındaki gölge miktarını ayarlar.
-            elevation: 0,
+          HeroSectionCard(),
 
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadiusGeometry.circular(16),
-              side: const BorderSide(color: Color(0xFFFF5722), width: 1),
-            ),
-
-            child: Padding(
-              // padding: Kartın içinde yatay ve dikey ne kadar boşluk olacağını ayarlar.
-              padding: const EdgeInsets.all(24.0),
-
-              child: Column(
-                // Elemanlar nereye yatık dizilecek
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Merhaba Koray :)",
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFFF5722),
-                    ),
-                  ),
-
-                  // Elemanlar arası boşluğu ayarlar
-                  const SizedBox(height: 16),
-
-                  Row(
-                    children: [
-                      // Sol taraftaki profil fotoğrafı ayarları
-                      const CircleAvatar(
-                        // Çap büyüklüğü
-                        radius: 24,
-                        backgroundColor: Colors.grey,
-                      ),
-
-                      // Elemanlar arası boşluğu ayarlar
-                      const SizedBox(width: 16),
-
-                      // Orta kısımdaki altı çizili metin
-                      const Expanded(
-                        child: Text(
-                          "Bugün hava patik örmek için çok güzel gözüküyor :)",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-
-                      // Sağ alt köşedeki ok ikonu
-                      Icon(Icons.arrow_forward, color: Color(0xFFFF5722)),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-
-          TitleText(text: 'Bonus Köşesi'),
+          TitleText(text: 'Ödüller'),
 
           // Haftalık İlerleme Kartı Tasarımı
           Card(
@@ -122,9 +53,26 @@ class _FeedViewState extends State<FeedView> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  const TitleWithIcon(
-                    title: "Haftalık Bonus Yolculuğu",
-                    icon: Icons.auto_awesome_motion_rounded,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.next_week_outlined,
+                        color: Color(0xFFFF5722),
+                        size: 24,
+                      ),
+
+                      SizedBox(width: 8),
+
+                      Text(
+                        'Haftalık Yolculuğum',
+                        style: TextStyle(
+                          color: Color(0xFF1E1E1E),
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
 
                   const SizedBox(height: 12),
@@ -158,7 +106,7 @@ class _FeedViewState extends State<FeedView> {
                   const SizedBox(height: 16),
 
                   const Text(
-                    "4 gün daha gel, Sürpriz Tarif'in kilidini aç!",
+                    "Seriyi tamamla, Sürpriz Tarif'in kilidini aç!",
                     style: TextStyle(color: Colors.black54, fontSize: 12),
                   ),
                 ],
@@ -178,13 +126,15 @@ class _FeedViewState extends State<FeedView> {
             ],
           ),
           */
-
           HorizontalCardList(
             itemCount: products.length,
             height: 160, // yükseklik
             cardWidthRatio: 0.6, // sağdan solal yüzde kaç oranı
             itemBuilder: (context, index) {
-              return BonusCard(bonusType: 'Günlük Bonus', bonus: '240 Tığcık');
+              return BonusCard(
+                bonusType: 'Günlük Bonus',
+                bonus: '240 Tığcık Kazan',
+              );
             },
           ),
 

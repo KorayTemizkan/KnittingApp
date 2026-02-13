@@ -1,25 +1,10 @@
-/*
-
-Supabase storageden json içindeki daha önceki tüm yarışmalar çekilecek ve model listesiyle klasik liste oluşturulacak
-Yapay Zeka'ya Sor bölümünün arayüzü gibi olucak. Burada üstte son yarışma bilgileri bulunacak
-Yarışmanın:
-Adı
-tarih aralığı
-yaptığını yerele yükle (not almak)
-yaptığını toplulukla paylaş
-ödüller: +100 tığcık, + 25.01.2025 ödülü
-
-*/
-
 import 'package:flutter/material.dart';
 import 'package:knitting_app/controllers/app_bar.dart';
 import 'package:knitting_app/controllers/providers/contest_provider.dart';
 import 'package:knitting_app/controllers/widgets/content_card.dart';
 import 'package:knitting_app/controllers/widgets/contest_card.dart';
-import 'package:knitting_app/controllers/widgets/generic_search_anchor_bar.dart';
 import 'package:knitting_app/controllers/widgets/title_text.dart';
 import 'package:knitting_app/controllers/widgets/vertical_card_list.dart';
-import 'package:knitting_app/models/searchable_model.dart';
 import 'package:provider/provider.dart';
 
 class ContestsView extends StatefulWidget {
@@ -38,6 +23,7 @@ class _ContestsViewState extends State<ContestsView> {
       appBar: AppBarWidget(title: 'Yarışmalar'),
       body: ListView(
         children: [
+          TitleText(text: 'Haftanın Yarışması'),
           ContestCard(
             teacher: 'Fidan',
             name: 'Bebek Patiği',
@@ -63,7 +49,6 @@ class _ContestsViewState extends State<ContestsView> {
             },
           ),
           */
-
    
           VerticalCardList(
             itemCount: contests.length,

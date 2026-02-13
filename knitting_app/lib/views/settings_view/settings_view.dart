@@ -139,6 +139,7 @@ class _SettingsViewState extends State<SettingsView> {
                 text: 'Gizlilik Politikası',
                 icon: Icons.privacy_tip_outlined,
               ), // Daha standart isim
+              
               MyGestureButton(
                 route: 'termsOfUse',
                 text: 'Kullanım Koşulları',

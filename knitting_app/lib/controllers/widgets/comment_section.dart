@@ -45,6 +45,13 @@ class PostCard extends StatelessWidget {
                     ),
                   ],
                 ),
+                Spacer(),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.share_outlined),
+                  color: Color(0xFFFF5722),
+                  iconSize: 24,
+                ),
               ],
             ),
 
@@ -100,23 +107,13 @@ class PostCard extends StatelessWidget {
                 Text('127'),
                 SizedBox(width: 8),
 
-               IconButton(
+                IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.comment_outlined),
                   color: Color(0xFFFF5722),
                   iconSize: 24,
                 ),
                 Text('127'),
-                
-                Spacer(),
-
-               IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.share_outlined),
-                  color: Color(0xFFFF5722),
-                  iconSize: 24,
-                ),
-                
               ],
             ),
           ],

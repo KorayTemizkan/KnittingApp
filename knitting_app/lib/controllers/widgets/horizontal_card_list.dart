@@ -33,6 +33,7 @@ class HorizontalCardList extends StatelessWidget {
       height: height,
       child: ListView.builder(
         scrollDirection: Axis.horizontal, // sağa doğru kaydırma özelliği
+        padding: const EdgeInsets.only(left: 8),
         itemCount: itemCount,
         itemBuilder: (context, index) {
           return SizedBox(

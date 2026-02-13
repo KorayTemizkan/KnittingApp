@@ -29,13 +29,13 @@ class WeeklyStarsCard extends StatelessWidget {
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: LinearGradient(
-                  colors: [Color(0xFFFF5722), Color(0xFFFF8A50)],
+                  colors: [Color(0xFFFF5722), Color(0xFFFF8A50),],
                 ),
               ),
               child: CircleAvatar(
                 radius: 28,
-                backgroundColor: Colors.grey[300],
-                child: const Icon(Icons.person, color: Colors.grey),
+                backgroundColor: Colors.white,
+                child: const Icon(Icons.person, color: Color(0xFFFF5722)),
               ),
             ),
 

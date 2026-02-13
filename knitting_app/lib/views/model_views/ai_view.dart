@@ -226,7 +226,7 @@ class _AiViewState extends State<AiView> {
                       ),
                     ),
                     child: const Text(
-                      'Tığcık\'ta Paylaş',
+                      'Akıllı Tığcık\'a Sor',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,
